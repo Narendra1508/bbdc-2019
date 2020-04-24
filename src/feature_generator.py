@@ -21,7 +21,7 @@ def main(train_label_df, feature):
         train_data_df['activity'] = train_label_df.loc[train_label_df.Subject == folder]['Label'].to_list()
         
         # write the file with extracted features 
-        train_data_df.to_csv("dataset/processed_train/"+ folder + ".csv", index=False)
+        train_data_df.to_csv("dataset/processed_train/"+ folder +"_"+ feature +".csv", index=False)
 
     print("Excuted Successfully")
 
@@ -73,5 +73,5 @@ if __name__ == '__main__':
     
     # Select required feature from the below set
     # {'mean','median','min','max','std','variance','mad','rms','zcr','iqr','pe','kurtosis','skew'}
-    feature = 'mean'
+    feature = 'std'
     main(train_label_df, feature)

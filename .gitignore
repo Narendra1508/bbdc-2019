@@ -166,6 +166,9 @@ dataset/wetransfer-231115.zip
 
 # input data and models
 dataset/
+models/
+notebook/
+
 
 # data files
 *.csv
