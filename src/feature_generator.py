@@ -11,7 +11,7 @@ import pickle # To store the necessary files for efficient reuse
 
 def main(train_label_df, feature, data_flag):
     #list all subject's data floder
-    folders = os.listdir("./../dataset/" + data_flag)
+    folders = os.listdir("dataset/" + data_flag)
     
     df = pd.DataFrame()
 
@@ -30,7 +30,7 @@ def main(train_label_df, feature, data_flag):
     df = df.sample(frac=1).reset_index(drop=True)
 
     # write the file with extracted features
-    out_file = "./../dataset/pickle/"+ data_flag +"/"+ feature +".pickle"
+    out_file = "dataset/pickle/"+ data_flag +"/"+ feature +".pickle"
     if not os.path.exists(os.path.dirname(out_file)):
         try:
             os.makedirs(os.path.dirname(out_file))
@@ -49,7 +49,7 @@ def fetch_train_data(folder, feature):
     dataframe = pd.DataFrame()
     
     # filenames: holds all the activity files given subject
-    file_names = glob("./../dataset/" + data_flag + "/" + folder +"/*.csv")
+    file_names = glob("dataset/" + data_flag + "/" + folder +"/*.csv")
     
     #read each activity file of the subject
     for file_name in file_names:
@@ -87,7 +87,7 @@ def time_stats(switcher_df, switcher_feature):
     
 if __name__ == '__main__':
     # read labled training data
-    train_label_df = pd.read_csv("./../dataset/train.csv")
+    train_label_df = pd.read_csv("dataset/train.csv")
     
     # Select required feature from the below set
     # {'mean','median','min','max','std','variance','mad','rms','zcr','iqr','pe','kurtosis','skew'}

@@ -8,10 +8,18 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
+import pickle
+
 import xgboost as xgb
 
 if __name__ == "__main__":
-    df = pd.read_csv("dataset/std_final_train.csv")
+    feature = 'mean'
+    data_flag = 'train'
+    out_file = "./../dataset/pickle/"+ data_flag +"/"+ feature +".pickle"
+    pickle_in = open(out_file, "rb")
+    df = pickle.load(pickle_in)
+
+    
 
     y_train = df.activity.values
     
